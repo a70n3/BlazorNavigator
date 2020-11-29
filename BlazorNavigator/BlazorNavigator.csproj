@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Version>1.0.2</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Reusable Component for generating pagination</Description>
+    <RepositoryUrl>https://github.com/a70n3/BlazorNavigator</RepositoryUrl>
+    <PackageTags>Blazor,Pagination</PackageTags>
   </PropertyGroup>
 
   

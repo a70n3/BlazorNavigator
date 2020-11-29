@@ -1,31 +1,31 @@
 @if(NumberOfPages>1){
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">First</a></li>
-        <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(PreviousPage))">Previous</a></li>
-        <li class="page-item @(CurrentPage == 1? "active":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">1</a></li>
-        @if (NumberOfPages > 10 && CurrentPage > 7)
-        {
-            <li class="page-item disabled"><a class="page-link">...</a></li>
-        }
-        @for (int i = 2; i < NumberOfPages; i++)
-        {
-            var pageNum = i;
-            
-            if ((pageNum - (CurrentPage - 5)) * ((CurrentPage+5)- pageNum)>=0)
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">First</a></li>
+            <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(PreviousPage))">Previous</a></li>
+            <li class="page-item @(CurrentPage == 1? "active":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">1</a></li>
+            @if (NumberOfPages > 10 && CurrentPage > 7)
             {
-                <li class="page-item @(CurrentPage == pageNum ? "active" : null)" style="cursor: pointer;"><a class="page-link" @onclick="@(() => NavClick(pageNum))">@pageNum</a></li>
+                <li class="page-item disabled"><a class="page-link">...</a></li>
             }
-        }
-        @if (CurrentPage < (NumberOfPages - 5))
-        {
-            <li class="page-item disabled"><a class="page-link">...</a></li>
-        }
-        <li class="page-item @(CurrentPage == NumberOfPages? "active":null)" style="cursor: pointer;  @(CurrentPage == NumberOfPages? "active" : null)"><a class="page-link" @onclick="@(()=>NavClick(NumberOfPages))">@NumberOfPages</a></li>
-        <li class="page-item @(!HasNextPage?"disabled":null)"><a class="page-link" style="cursor: pointer;" @onclick="@(()=>NavClick(NextPage))">Next</a></li>
-        <li class="page-item @(!HasNextPage?"disabled":null)"><a class="page-link" style="cursor: pointer;" @onclick="@(()=>NavClick(NumberOfPages))">Last</a></li>
-    </ul>
-</nav>
+            @for (int i = 2; i < NumberOfPages; i++)
+            {
+                var pageNum = i;
+            
+                if ((pageNum - (CurrentPage - 5)) * ((CurrentPage+5)- pageNum)>=0)
+                {
+                    <li class="page-item @(CurrentPage == pageNum ? "active" : null)" style="cursor: pointer;"><a class="page-link" @onclick="@(() => NavClick(pageNum))">@pageNum</a></li>
+                }
+            }
+            @if (CurrentPage < (NumberOfPages - 5))
+            {
+                <li class="page-item disabled"><a class="page-link">...</a></li>
+            }
+            <li class="page-item @(CurrentPage == NumberOfPages? "active":null)" style="cursor: pointer;  @(CurrentPage == NumberOfPages? "active" : null)"><a class="page-link" @onclick="@(()=>NavClick(NumberOfPages))">@NumberOfPages</a></li>
+            <li class="page-item @(!HasNextPage?"disabled":null)"><a class="page-link" style="cursor: pointer;" @onclick="@(()=>NavClick(NextPage))">Next</a></li>
+            <li class="page-item @(!HasNextPage?"disabled":null)"><a class="page-link" style="cursor: pointer;" @onclick="@(()=>NavClick(NumberOfPages))">Last</a></li>
+        </ul>
+    </nav>
 }﻿
 @code {
     [Parameter]
