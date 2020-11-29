@@ -1,4 +1,5 @@
-﻿<nav aria-label="Page navigation example">
+@if(NumberOfPages>1){
+<nav aria-label="Page navigation example">
     <ul class="pagination">
         <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">First</a></li>
         <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(PreviousPage))">Previous</a></li>
@@ -25,6 +26,7 @@
         <li class="page-item @(!HasNextPage?"disabled":null)"><a class="page-link" style="cursor: pointer;" @onclick="@(()=>NavClick(NumberOfPages))">Last</a></li>
     </ul>
 </nav>
+}﻿
 @code {
     [Parameter]
     public int NumberOfPages { get; set; }
