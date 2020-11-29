@@ -16,7 +16,6 @@ Or via the Visual Studio package manger.
 <BlazorNavigator 
                 NumberOfPages="@NumberOfPages" 
                 RecordPerPage="@NumberOfRecordsPerPage" 
-                TotalNumberOfRecords="@NumberOfRecords"
                 OnClick="Search"/>
                 
 @code{
