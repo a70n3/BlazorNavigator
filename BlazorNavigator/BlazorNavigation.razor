@@ -3,24 +3,18 @@
         <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">First</a></li>
         <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(PreviousPage))">Previous</a></li>
         <li class="page-item @(CurrentPage == 1? "active":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">1</a></li>
-        @if (NumberOfPages > 10 && CurrentPage > 5)
+        @if (NumberOfPages > 10 && CurrentPage > 7)
         {
             <li class="page-item disabled"><a class="page-link">...</a></li>
         }
         @for (int i = 2; i < NumberOfPages; i++)
         {
             var pageNum = i;
-            if (pageNum > CurrentPage - 5 && pageNum < CurrentPage || pageNum > CurrentPage && pageNum < CurrentPage + 5)
+            
+            if ((pageNum - (CurrentPage - 5)) * ((CurrentPage+5)- pageNum)>=0)
             {
                 <li class="page-item @(CurrentPage == pageNum ? "active" : null)" style="cursor: pointer;"><a class="page-link" @onclick="@(() => NavClick(pageNum))">@pageNum</a></li>
             }
-            else if (CurrentPage == pageNum)
-            {
-                <li class="page-item @(CurrentPage == pageNum ? "active " : "")" style="cursor: pointer;" @onclick="@(() => NavClick(pageNum))">
-                    <span class="btn page-link">@pageNum</span>
-                </li>
-            }
-
         }
         @if (CurrentPage < (NumberOfPages - 5))
         {
@@ -36,8 +30,6 @@
     public int NumberOfPages { get; set; }
     [Parameter]
     public int RecordPerPage { get; set; } = 10;
-    [Parameter]
-    public int TotalNumberOfRecords { get; set; }
     public int CurrentPage { get; set; } = 1;
     public int PreviousPage => CurrentPage - 1;
     public int NextPage => CurrentPage + 1;
