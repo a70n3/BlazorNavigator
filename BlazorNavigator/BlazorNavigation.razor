@@ -1,9 +1,9 @@
 @if(NumberOfPages>1){
     <nav aria-label="Page navigation example">
         <ul class="pagination">
-            <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">First</a></li>
-            <li class="page-item @(!HasPreviousPage?"disabled":null)"><a class="page-link" @onclick="@(()=>NavClick(PreviousPage))">Previous</a></li>
-            <li class="page-item @(CurrentPage == 1? "active":null)"><a class="page-link" @onclick="@(()=>NavClick(1))">1</a></li>
+            <li class="page-item @(!HasPreviousPage?"disabled":null)" style="cursor: pointer;"><a class="page-link" @onclick="@(()=>NavClick(1))">First</a></li>
+            <li class="page-item @(!HasPreviousPage?"disabled":null)" style="cursor: pointer;"><a class="page-link" @onclick="@(()=>NavClick(PreviousPage))">Previous</a></li>
+            <li class="page-item @(CurrentPage == 1? "active":null)" style="cursor: pointer;"><a class="page-link" @onclick="@(()=>NavClick(1))">1</a></li>
             @if (NumberOfPages > 10 && CurrentPage > 7)
             {
                 <li class="page-item disabled"><a class="page-link">...</a></li>
