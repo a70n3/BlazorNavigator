@@ -1,6 +1,7 @@
 # BlazorNavigator
 Reusable Pagination Component for Blazor
 
+![alt text](https://github.com/a70n3/BlazorNavigator/blob/master/screenshot.PNG)
 ## Installing
 You can install from NuGet using the following command:
 ```sh
