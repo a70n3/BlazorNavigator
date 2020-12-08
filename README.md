@@ -16,12 +16,11 @@ Or via the Visual Studio package manger.
 </table>
 <BlazorNavigator 
                 NumberOfPages="@NumberOfPages" 
-                RecordPerPage="@NumberOfRecordsPerPage" 
-                OnClick="Search"/>
+                OnClick="@Search"/>
                 
 @code{
     public async Task Search(int pageNum) {
-        //fetch data
+        //code to fetch paged result using pageNum as offset to your sql query
     }
 }
 ```
