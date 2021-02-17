@@ -25,4 +25,4 @@ Or via the Visual Studio package manger.
 }
 ```
 ## Note
-The pagination button will only show if the number of pages is greater than 1.
+The pagination button will only show if the number of pages is more than 1.
