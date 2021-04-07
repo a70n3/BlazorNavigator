@@ -1,0 +1,77 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+                @foreach (var forecast in forecasts.ResultSet)
+                {
+                    <tr>
+                        <td>@forecast.Id</td>
+                        <td>@forecast.Date.ToShortDateString()</td>
+                        <td>@forecast.TemperatureC</td>
+                        <td>@forecast.TemperatureF</td>
+                        <td>@forecast.Summary</td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+    <div class="row">
+        <BlazorNavigation 
+            NumberOfPages=@forecasts.NumberOfPages
+            OnClick="@SearchAsync" />
+    </div>
+}
+@code {
+
+    private PagedResult forecasts { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await SearchAsync(1);
+    }
+    public async Task SearchAsync(int pageNum) {
+
+        var result = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+                
+        var recordPerPage = 10;
+
+        forecasts = new PagedResult()
+        {
+            ResultSet = result.Where(w => w.Id > (pageNum - 1) * recordPerPage).Take(10).ToArray(),
+            TotalRecords = result.Length,
+            RecordPerPage = 10
+        };
+
+    }
+    public class WeatherForecast
+    {
+        public int Id { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}

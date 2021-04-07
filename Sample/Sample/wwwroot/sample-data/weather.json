@@ -1,0 +1,92 @@
+﻿[
+  {
+    "id": 1,
+    "date": "2018-05-06",
+    "temperatureC": 1,
+    "summary": "Freezing"
+  },
+  {
+    "id": 2,
+    "date": "2018-05-07",
+    "temperatureC": 14,
+    "summary": "Bracing"
+  },
+  {
+    "id": 3,
+    "date": "2018-05-08",
+    "temperatureC": -13,
+    "summary": "Freezing"
+  },
+  {
+    "id": 4,
+    "date": "2018-05-09",
+    "temperatureC": -16,
+    "summary": "Balmy"
+  },
+  {
+    "id": 5,
+    "date": "2018-05-10",
+    "temperatureC": -2,
+    "summary": "Chilly"
+  },
+  {
+    "id": 6,
+    "date": "2018-07-06",
+    "temperatureC": 3,
+    "summary": "Chilly"
+  },
+  {
+    "id": 7,
+    "date": "2018-07-07",
+    "temperatureC": 14,
+    "summary": "Balmy"
+  },
+  {
+    "id": 8,
+    "date": "2018-07-08",
+    "temperatureC": -14,
+    "summary": "Sunny"
+  },
+  {
+    "id": 9,
+    "date": "2018-07-09",
+    "temperatureC": -15,
+    "summary": "Balmy"
+  },
+  {
+    "id": 10,
+    "date": "2018-05-10",
+    "temperatureC": 32,
+    "summary": "Windy"
+  },
+  {
+    "id": 11,
+    "date": "2018-05-06",
+    "temperatureC": 1,
+    "summary": "Freezing"
+  },
+  {
+    "id": 12,
+    "date": "2018-05-07",
+    "temperatureC": 14,
+    "summary": "Bracing"
+  },
+  {
+    "id": 13,
+    "date": "2018-05-08",
+    "temperatureC": -13,
+    "summary": "Freezing"
+  },
+  {
+    "id": 14,
+    "date": "2018-05-09",
+    "temperatureC": -16,
+    "summary": "Balmy"
+  },
+  {
+    "id": 15,
+    "date": "2018-05-10",
+    "temperatureC": -2,
+    "summary": "Chilly"
+  }
+]
