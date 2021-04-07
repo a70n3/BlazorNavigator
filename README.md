@@ -10,6 +10,12 @@ Install-Package BlazoreNavigator
 Or via the Visual Studio package manger.
 
 ## Usage
+
+Open ```_Imports.razor``` and add the using statement for BlazorNavigator
+```
+@using BlazorNavigator
+```
+
 ```sh
 <table>
   ...
@@ -20,7 +26,7 @@ Or via the Visual Studio package manger.
                 
 @code{
     public async Task Search(int pageNum) {
-        //code to fetch paged result using pageNum as offset to your sql query
+        //code to fetch paged result
     }
 }
 ```
